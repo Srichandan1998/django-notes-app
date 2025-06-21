@@ -73,17 +73,17 @@ REST_FRAMEWORK = {
 WSGI_APPLICATION = 'notesapp.wsgi.application'
 
 
-# ✅ Database with fallback values (for local or default setup)
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': os.getenv("DB_NAME", "notesapp"),
         'USER': os.getenv("DB_USER", "root"),
         'PASSWORD': os.getenv("DB_PASSWORD", ""),
-        'HOST': os.getenv("DB_HOST", ""),  # '' means localhost
+        'HOST': os.getenv("DB_HOST", "localhost"),  # ✅ Use "localhost" or IP, NOT None or ""
         'PORT': os.getenv("DB_PORT", "3306"),
     }
 }
+
 
 
 # Password validation
